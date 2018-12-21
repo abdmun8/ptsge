@@ -1,4 +1,4 @@
-# ptsge
+# PT XYZ
 Built with adminLTE Dashboard (bootstrap based) jQuery
 
 ## How to install
