@@ -5,6 +5,9 @@
 	if(!isset($_SESSION)){
     header("location: ..");
   }else{
+  	if(isset($_POST['sign_out'])){
+  		print_r($_POST);die;
+  	}
   	$data = $f->get_data();
   	// var_dump($data);
   	?>
@@ -91,7 +94,7 @@
 		              <!-- Menu Footer-->
 		              <li class="user-footer">
 		                <div class="pull-right">
-		                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+		                  <a href="" onclick="signout();" class="btn btn-default btn-flat">Sign out</a>
 		                </div>
 		              </li>
 		            </ul>
@@ -265,6 +268,15 @@
         el.classList.add('active-menu');
         statemenu = this.id;
       });
+
+      function signout(){
+      	var data = {sign_out: 1};
+      	$.ajax({
+				  type: "POST",
+				  url: '',
+				  data: data
+				});
+      }
 
   		function gen_chart() {
 
