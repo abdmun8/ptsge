@@ -2,15 +2,12 @@
   session_start();
   require_once("inc/functions.php");
   $f = new fm;
-  var_dump($_SESSION);
-  if(isset($_SESSION)){
-    header("location: admin");
+  if(isset($_SESSION['userdata'])){
+    header("location: admin/");
   }else{
     if(isset($_POST['submit'])){
       $u = $f->login($_POST);
-      if($u['code'] == '1'){
-        $f->alert($u['code']);
-      }
+      $f->alert($u['code']);
     }
 ?>
 <!DOCTYPE html>
